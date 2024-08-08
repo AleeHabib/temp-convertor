@@ -1,3 +1,6 @@
+import time
+
+
 class ChoiceOutOfRange(Exception):
     def __init__(self, message):
         super().__init__(message)
@@ -111,6 +114,7 @@ def temp_convertor() -> None:
     print("4. Kelvin -> Celsius")
     print("5. Fahrenheit -> Kelvin")
     print("6. Kelvin -> Fahrenheit")
+    print("7. Exit")
     print(" ")
     print("-------------------------")
 
@@ -143,6 +147,10 @@ def temp_convertor() -> None:
 
     elif choice == 6:
         kelvin_celsius()
+
+    elif choice == 7:
+        print("Exiting...")
+        time.sleep(1.5)
 
     else:
         print("Enter a valid option")
