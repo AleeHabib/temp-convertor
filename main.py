@@ -1,12 +1,23 @@
 import time
 
 
+def menu_decorator(f):
+    def wrapper():
+        f()
+        menu_option = input("\nEnter 'M' to go back: ")
+        if menu_option.lower() == "m":
+            temp_convertor()
+
+    return wrapper
+
+
 class ChoiceOutOfRange(Exception):
     def __init__(self, message):
         super().__init__(message)
         self.message = message
 
 
+@menu_decorator
 def celsius_fahrenheit() -> None:
 
     try:
@@ -19,11 +30,8 @@ def celsius_fahrenheit() -> None:
     print(f"\nOriginal Temperature: {temp}°C")
     print(f"Converted Temperature: {temp_fah:.2f}°F")
 
-    menu_option = input("\nEnter 'M' to go back: ")
-    if menu_option.lower() == "m":
-        temp_convertor()
 
-
+@menu_decorator
 def fahrenheit_celsius() -> None:
 
     try:
@@ -35,11 +43,8 @@ def fahrenheit_celsius() -> None:
     print(f"\nOriginal Temperature: {temp}°F")
     print(f"Converted Temperature: {temp_celsius:.2f}°C")
 
-    menu_option = input("\nEnter 'M' to go back: ")
-    if menu_option.lower() == "m":
-        temp_convertor()
 
-
+@menu_decorator
 def celsius_kelvin() -> None:
 
     try:
@@ -51,11 +56,8 @@ def celsius_kelvin() -> None:
     print(f"\nOriginal Temperature: {temp}°C")
     print(f"Converted Temperature: {temp_kelvin:.2f}K")
 
-    menu_option = input("\nEnter 'M' to go back: ")
-    if menu_option.lower() == "m":
-        temp_convertor()
 
-
+@menu_decorator
 def kelvin_celsius() -> None:
 
     try:
@@ -67,11 +69,8 @@ def kelvin_celsius() -> None:
     print(f"\nOriginal Temperature: {temp}K")
     print(f"Converted Temperature: {temp_celsius:.2f}°C")
 
-    menu_option = input("\nEnter 'M' to go back: ")
-    if menu_option.lower() == "m":
-        temp_convertor()
 
-
+@menu_decorator
 def fahrenheit_kelvin() -> None:
 
     try:
@@ -84,11 +83,8 @@ def fahrenheit_kelvin() -> None:
     print(f"\nOriginal Temperature: {temp}°F")
     print(f"Converted Temperature: {temp_kelvin:.2f}K")
 
-    menu_option = input("\nEnter 'M' to go back: ")
-    if menu_option.lower() == "m":
-        temp_convertor()
 
-
+@menu_decorator
 def kelvin_fahrenheit() -> None:
 
     try:
@@ -99,10 +95,6 @@ def kelvin_fahrenheit() -> None:
 
     print(f"\nOriginal Temperature: {temp}K")
     print(f"Converted Temperature: {temp_fahrenheit:.2f}°F")
-
-    menu_option = input("\nEnter 'M' to go back: ")
-    if menu_option.lower() == "m":
-        temp_convertor()
 
 
 def temp_convertor() -> None:
@@ -146,7 +138,7 @@ def temp_convertor() -> None:
         fahrenheit_kelvin()
 
     elif choice == 6:
-        kelvin_celsius()
+        kelvin_fahrenheit()
 
     elif choice == 7:
         print("Exiting...")
