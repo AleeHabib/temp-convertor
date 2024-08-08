@@ -121,8 +121,8 @@ def temp_convertor() -> None:
     while True:
         try:
             choice = int(input("\nEnter your choice: "))
-            if not 0 < choice <= 6:
-                raise ChoiceOutOfRange("Enter choice between 1 to 6")
+            if not 0 < choice <= 7:
+                raise ChoiceOutOfRange("Enter choice between 1 to 7")
             else:
                 break
         except ValueError:
@@ -150,7 +150,8 @@ def temp_convertor() -> None:
 
     elif choice == 7:
         print("Exiting...")
-        time.sleep(1.5)
+        time.sleep(1)
+        exit()
 
     else:
         print("Enter a valid option")
