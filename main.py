@@ -1,3 +1,9 @@
+class ChoiceOutOfRange(Exception):
+    def __init__(self, message):
+        super().__init__(message)
+        self.message = message
+
+
 def celsius_fahrenheit() -> None:
 
     try:
@@ -111,30 +117,35 @@ def temp_convertor() -> None:
     while True:
         try:
             choice = int(input("\nEnter your choice: "))
-            break
+            if not 0 < choice <= 6:
+                raise ChoiceOutOfRange("Enter choice between 1 to 6")
+            else:
+                break
         except ValueError:
             print("Choice must be a valid integer, try again.")
+        except ChoiceOutOfRange as e:
+            print(e)
 
-        if choice == 1:
-            celsius_fahrenheit()
-            break
-        elif choice == 2:
-            fahrenheit_celsius()
-            break
-        elif choice == 3:
-            celsius_kelvin()
-            break
-        elif choice == 4:
-            kelvin_celsius()
-            break
-        elif choice == 5:
-            fahrenheit_kelvin()
-            break
-        elif choice == 6:
-            kelvin_celsius()
-            break
-        else:
-            print("Enter a valid option")
+    if choice == 1:
+        celsius_fahrenheit()
+
+    elif choice == 2:
+        fahrenheit_celsius()
+
+    elif choice == 3:
+        celsius_kelvin()
+
+    elif choice == 4:
+        kelvin_celsius()
+
+    elif choice == 5:
+        fahrenheit_kelvin()
+
+    elif choice == 6:
+        kelvin_celsius()
+
+    else:
+        print("Enter a valid option")
 
 
 if __name__ == "__main__":
