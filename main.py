@@ -115,20 +115,26 @@ def temp_convertor() -> None:
         except ValueError:
             print("Choice must be a valid integer, try again.")
 
-    if choice == 1:
-        celsius_fahrenheit()
-    elif choice == 2:
-        fahrenheit_celsius()
-    elif choice == 3:
-        celsius_kelvin()
-    elif choice == 4:
-        kelvin_celsius()
-    elif choice == 5:
-        fahrenheit_kelvin()
-    elif choice == 6:
-        kelvin_celsius()
-    else:
-        print("Enter a valid option")
+        if choice == 1:
+            celsius_fahrenheit()
+            break
+        elif choice == 2:
+            fahrenheit_celsius()
+            break
+        elif choice == 3:
+            celsius_kelvin()
+            break
+        elif choice == 4:
+            kelvin_celsius()
+            break
+        elif choice == 5:
+            fahrenheit_kelvin()
+            break
+        elif choice == 6:
+            kelvin_celsius()
+            break
+        else:
+            print("Enter a valid option")
 
 
 if __name__ == "__main__":
